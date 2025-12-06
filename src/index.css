@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Clean Light Mode */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --card: 220 35% 98%;
+    --card-foreground: 240 60% 15%;
+
+    --popover: 220 35% 98%;
+    --popover-foreground: 240 60% 15%;
+
+    --primary: 271 76% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 188 94% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 30% 92%;
+    --muted-foreground: 240 20% 45%;
+
+    --accent: 328 86% 57%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 220 30% 88%;
+    --input: 220 30% 88%;
+    --ring: 271 76% 53%;
+
+    --radius: 1rem;
+
+    /* Galaxy Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(271 76% 53%) 0%, hsl(188 94% 45%) 50%, hsl(328 86% 57%) 100%);
+    --gradient-nebula: linear-gradient(180deg, hsl(271 76% 95%) 0%, hsl(220 40% 97%) 100%);
+    --gradient-star: radial-gradient(circle, hsl(271 76% 53% / 0.15) 0%, transparent 70%);
+    
+    /* Glass Effects */
+    --glass-bg: hsl(220 35% 98% / 0.7);
+    --glass-border: hsl(271 76% 53% / 0.2);
+    --glass-shadow: 0 8px 32px 0 hsl(271 76% 53% / 0.15);
+    
+    /* Glows */
+    --glow-primary: 0 0 20px hsl(271 76% 53% / 0.5);
+    --glow-secondary: 0 0 20px hsl(188 94% 45% / 0.5);
+    --glow-accent: 0 0 20px hsl(328 86% 57% / 0.5);
+
+    --sidebar-background: 220 35% 98%;
+    --sidebar-foreground: 240 60% 15%;
+    --sidebar-primary: 271 76% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 30% 92%;
+    --sidebar-accent-foreground: 240 60% 15%;
+    --sidebar-border: 220 30% 88%;
+    --sidebar-ring: 271 76% 53%;
+  }
+
+  .dark {
+    /* Clean Dark Mode */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+
+    --card: 240 55% 12%;
+    --card-foreground: 220 30% 95%;
+
+    --popover: 240 55% 12%;
+    --popover-foreground: 220 30% 95%;
+
+    --primary: 271 76% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 188 94% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 45% 18%;
+    --muted-foreground: 220 20% 65%;
+
+    --accent: 328 86% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 240 40% 22%;
+    --input: 240 40% 22%;
+    --ring: 271 76% 60%;
+
+    /* Dark Galaxy Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(271 76% 40%) 0%, hsl(188 94% 35%) 50%, hsl(328 86% 45%) 100%);
+    --gradient-nebula: linear-gradient(180deg, hsl(240 60% 8%) 0%, hsl(271 50% 15%) 100%);
+    --gradient-star: radial-gradient(circle, hsl(271 76% 60% / 0.2) 0%, transparent 70%);
+    
+    /* Dark Glass Effects */
+    --glass-bg: hsl(240 55% 12% / 0.6);
+    --glass-border: hsl(271 76% 60% / 0.3);
+    --glass-shadow: 0 8px 32px 0 hsl(271 76% 60% / 0.3);
+    
+    /* Dark Glows */
+    --glow-primary: 0 0 30px hsl(271 76% 60% / 0.6);
+    --glow-secondary: 0 0 30px hsl(188 94% 50% / 0.6);
+    --glow-accent: 0 0 30px hsl(328 86% 60% / 0.6);
+
+    --sidebar-background: 240 55% 10%;
+    --sidebar-foreground: 220 30% 95%;
+    --sidebar-primary: 271 76% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 45% 18%;
+    --sidebar-accent-foreground: 220 30% 95%;
+    --sidebar-border: 240 40% 22%;
+    --sidebar-ring: 271 76% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    position: relative;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* Glass Card Component */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  /* Cosmic Button Variants */
+  .btn-cosmic {
+    background: var(--gradient-cosmic);
+    box-shadow: var(--glow-primary);
+    transition: all 0.3s ease;
+  }
+
+  .btn-cosmic:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px hsl(271 76% 53% / 0.8);
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse Glow Animation */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(271 76% 53% / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(271 76% 53% / 0.8);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Star Twinkle Animation */
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+  }
+}
