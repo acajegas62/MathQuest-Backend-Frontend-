@@ -52,6 +52,10 @@ npm run dev
 
 MathQuest is built with modern web technologies for performance and scalability:
 
+FrontEnd - TyoeScript, Javascript, Vite & ReactJs
+Backend - PostgresSql
+Server - Vercel 
+
 - Figma ( UI & UX )
 - Click Up / Notion ( Documentation & Segregation of Tasks )
 - Github Desktop & Github ( Code Conntrol )
